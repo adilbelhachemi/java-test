@@ -1,19 +1,19 @@
 package test.com.h2rd.refactoring.unit;
 
-import com.h2rd.refactoring.usermanagement.User;
-import com.h2rd.refactoring.usermanagement.UserDao;
+import com.h2rd.refactoring.bean.User;
+import com.h2rd.refactoring.dao.UserDaoImpl;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 
 public class UserDaoUnitTest {
 
-    UserDao userDao;
+    @Autowired
+    UserDaoImpl userDao;
 
     @Test
     public void saveUserTest() {
-        userDao = UserDao.getUserDao();
-
         User user = new User();
         user.setName("Fake Name");
         user.setEmail("fake@email.com");
@@ -24,8 +24,6 @@ public class UserDaoUnitTest {
 
     @Test
     public void deleteUserTest() {
-        userDao = UserDao.getUserDao();
-
         User user = new User();
         user.setName("Fake Name");
         user.setEmail("fake@email.com");

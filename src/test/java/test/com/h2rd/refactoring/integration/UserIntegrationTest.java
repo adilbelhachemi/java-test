@@ -8,8 +8,9 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.h2rd.refactoring.usermanagement.User;
+import com.h2rd.refactoring.bean.User;
 import com.h2rd.refactoring.web.UserResource;
+
 
 public class UserIntegrationTest {
 	

@@ -1,27 +1,31 @@
 package com.h2rd.refactoring.web;
 
-import com.h2rd.refactoring.usermanagement.User;
-import com.h2rd.refactoring.usermanagement.UserDao;
+import com.h2rd.refactoring.bean.User;
+import com.h2rd.refactoring.dao.UserDaoImpl;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
+import com.h2rd.refactoring.userservice.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Controller
 @Path("/users")
-@Repository
 public class UserResource{
 
-    public UserDao userDao;
+    @Autowired
+    private UserService service;
 
-    @GET
-    @Path("add/")
+    @POST
+    @Path("/add/")
     public Response addUser(@QueryParam("name") String name,
                             @QueryParam("email") String email,
                             @QueryParam("role") List<String> roles) {
@@ -31,15 +35,11 @@ public class UserResource{
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
-            userDao = UserDao.getUserDao();
-        }
-
-        userDao.saveUser(user);
-        return Response.ok().entity(user).build();
+        service.saveUser(user);
+        return Response.status(201).entity(user).build();
     }
 
-    @GET
+    @POST
     @Path("update/")
     public Response updateUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
@@ -50,45 +50,29 @@ public class UserResource{
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
-            userDao = UserDao.getUserDao();
-        }
-
-        userDao.updateUser(user);
+        service.updateUser(user);
         return Response.ok().entity(user).build();
     }
 
-    @GET
+    @DELETE
     @Path("delete/")
     public Response deleteUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
+
         User user = new User();
         user.setName(name);
         user.setEmail(email);
         user.setRoles(roles);
 
-        if (userDao == null) {
-            userDao = UserDao.getUserDao();
-        }
-
-        userDao.deleteUser(user);
-        return Response.ok().entity(user).build();
+        service.deleteUser(user);
+        return Response.ok().build();
     }
 
     @GET
     @Path("find/")
     public Response getUsers() {
-    	
-        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
-    		"classpath:/application-config.xml"	
-    	});
-    	userDao = context.getBean(UserDao.class);
-    	List<User> users = userDao.getUsers();
-    	if (users == null) {
-    		users = new ArrayList<User>();
-    	}
-
+    	List<User> users = service.getUsers();
         GenericEntity<List<User>> usersEntity = new GenericEntity<List<User>>(users) {};
         return Response.status(200).entity(usersEntity).build();
     }
@@ -96,12 +80,7 @@ public class UserResource{
     @GET
     @Path("search/")
     public Response findUser(@QueryParam("name") String name) {
-
-        if (userDao == null) {
-            userDao = UserDao.getUserDao();
-        }
-
-        User user = userDao.findUser(name);
+        User user = service.findUser(name);
         return Response.ok().entity(user).build();
     }
 }

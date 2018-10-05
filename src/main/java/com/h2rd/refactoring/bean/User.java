@@ -1,4 +1,7 @@
-package com.h2rd.refactoring.usermanagement;
+package com.h2rd.refactoring.bean;
+
+
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
