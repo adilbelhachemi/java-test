@@ -3,20 +3,27 @@ package com.h2rd.refactoring.dao;
 import com.h2rd.refactoring.bean.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.Vector;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    public static  Vector<User> users;
+
+    /**
+     * Vector is a thread-safe collection
+     * all it's methods are syncronized
+     */
+    public static Vector<User> users;
+
 
     static {
         users = (users == null) ? new Vector<User>() : users;
+        users.add(new User("test", "t@gmail.com", Arrays.asList("User")));
     }
 
     /**
      * {@inheritDoc}
-     * @param user.
      */
     public void saveUser(User user) {
         users.add(user);
@@ -31,10 +38,9 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * {@inheritDoc}
-     * @param userToDelete.
      */
     public void deleteUser(User userToDelete) {
-        User user = findUser(userToDelete.getName());
+        User user = (userToDelete != null ) ? findUser(userToDelete.getName()) : null;
         if (user != null) {
             users.remove(user);
         }
@@ -42,10 +48,9 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * {@inheritDoc}
-     * @param userToUpdate.
      */
     public void updateUser(User userToUpdate) {
-        User user = findUser(userToUpdate.getName());
+        User user = (userToUpdate != null ) ? findUser(userToUpdate.getName()) : null;
         if (user != null) {
             user.setEmail(userToUpdate.getEmail());
             user.setRoles(userToUpdate.getRoles());
@@ -54,19 +59,13 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * {@inheritDoc}
-     * @param name.
      */
     public User findUser(String name) {
-        try {
-            for (User user : users) {
-                if (user.getName() == name) {
-                    return user;
-                }
+        for (User user : users) {
+            if (user.getName() == name) {
+                return user;
             }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
         }
         return null;
     }
-
 }

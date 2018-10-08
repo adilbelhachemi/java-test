@@ -1,6 +1,8 @@
 package com.h2rd.refactoring.userservice;
 
 import com.h2rd.refactoring.bean.User;
+import com.h2rd.refactoring.dao.UserDaoImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,43 +16,42 @@ import java.util.Vector;
 @Transactional
 public class UserServiceImpl implements UserService{
 
+    @Autowired
+    private UserDaoImpl dao;
+
 
     /**
      * {@inheritDoc}
-     * @param user.
      */
     public void saveUser(User user) {
-
+        dao.saveUser(user);
     }
 
     /**
      * {@inheritDoc}
      */
     public Vector<User> getUsers() {
-        return null;
+        return dao.getUsers();
     }
 
     /**
      * {@inheritDoc}
-     * @param userToDelete.
      */
     public void deleteUser(User userToDelete) {
-
+        dao.deleteUser(userToDelete);
     }
 
     /**
      * {@inheritDoc}
-     * @param userToUpdate.
      */
     public void updateUser(User userToUpdate) {
-
+        dao.updateUser(userToUpdate);
     }
 
     /**
      * {@inheritDoc}
-     * @param name.
      */
     public User findUser(String name) {
-        return null;
+        return dao.findUser(name);
     }
 }

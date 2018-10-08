@@ -13,6 +13,14 @@ public class User {
     String email;
     List<String> roles;
 
+    public User() {}
+
+    public User(String name, String email, List<String> roles) {
+        this.name = name;
+        this.email = email;
+        this.roles = roles;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,5 +38,14 @@ public class User {
     }
     public void setRoles(List<String> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

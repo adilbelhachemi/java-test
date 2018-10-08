@@ -1,86 +1,101 @@
 package com.h2rd.refactoring.web;
 
 import com.h2rd.refactoring.bean.User;
-import com.h2rd.refactoring.dao.UserDaoImpl;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 
+import com.h2rd.refactoring.helper.UserValidationHelper;
+import com.h2rd.refactoring.message.UserMessage;
 import com.h2rd.refactoring.userservice.UserService;
+import com.h2rd.refactoring.util.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
+import org.springframework.http.MediaType;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Controller
-@Path("/users")
+@RestController(value = "/users")
 public class UserResource{
+
 
     @Autowired
     private UserService service;
 
-    @POST
-    @Path("/add/")
+
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response addUser(@QueryParam("name") String name,
                             @QueryParam("email") String email,
                             @QueryParam("role") List<String> roles) {
 
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setRoles(roles);
+        if(UserValidationHelper.validateUser(name, email, roles)) {
 
-        service.saveUser(user);
-        return Response.status(201).entity(user).build();
+            User user = new User(name, email, roles);
+            service.saveUser(user);
+
+            return Response.status(StatusCode.CREATED_STATUS.getCode()).entity(user).build();
+        } else {
+            return Response.status(StatusCode.BAD_REQUEST_STATUS.getCode()).entity(UserMessage.MISSING_CRITERIA_MESSAGE).build();
+        }
     }
 
-    @POST
-    @Path("update/")
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response updateUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
 
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setRoles(roles);
-
-        service.updateUser(user);
-        return Response.ok().entity(user).build();
+        if(UserValidationHelper.validateUser(name, email, roles)) {
+            User user = new User(name, email, roles);
+            service.updateUser(user);
+            return Response.ok().entity(user).build();
+        }
+        return Response.serverError().build();
     }
 
-    @DELETE
-    @Path("delete/")
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response deleteUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
 
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setRoles(roles);
-
-        service.deleteUser(user);
-        return Response.ok().build();
+        if(UserValidationHelper.validateUser(name, email, roles)) {
+            User user = new User(name, email, roles);
+            service.deleteUser(user);
+            return Response.ok().build();
+        } else {
+            return Response.status(StatusCode.NOT_FOUND_STATUS.getCode()).entity(UserMessage.USER_NOT_FOUND_MESSAGE).build();
+        }
     }
 
-    @GET
-    @Path("find/")
+    @RequestMapping(value = "/find", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response getUsers() {
-    	List<User> users = service.getUsers();
-        GenericEntity<List<User>> usersEntity = new GenericEntity<List<User>>(users) {};
-        return Response.status(200).entity(usersEntity).build();
+
+        List<User> users = service.getUsers();
+
+        if(!users.isEmpty()) {
+            GenericEntity<List<User>> usersEntity = new GenericEntity<List<User>>(users) {};
+            return Response.status(200).entity(usersEntity).build();
+        } else {
+            return Response.status(StatusCode.NO_CONTENT_STATUS.getCode()).entity(UserMessage.NO_CONTENT_FOUND_MESSAGE).build();
+        }
     }
 
-    @GET
-    @Path("search/")
+    @RequestMapping(value = "/search", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public Response findUser(@QueryParam("name") String name) {
-        User user = service.findUser(name);
-        return Response.ok().entity(user).build();
+
+        if(!StringUtils.isEmpty(name)) {
+            User user = service.findUser(name);
+            if(user != null) {
+                return Response.ok().entity(user).build();
+            } else {
+                return Response.status(StatusCode.NO_CONTENT_STATUS.getCode()).entity(UserMessage.NO_USER_FOUND_MESSAGE).build();
+            }
+        }else {
+            return Response.status(StatusCode.BAD_REQUEST_STATUS.getCode()).entity(UserMessage.USER_NAME_ERROR_MESSAGE).build();
+        }
     }
 }

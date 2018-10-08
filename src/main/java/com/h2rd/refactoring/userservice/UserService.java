@@ -34,9 +34,8 @@ public interface UserService {
     public void updateUser(User userToUpdate);
 
     /**
-     * Find User
-     * @param name
-     * @return user
+     * {@inheritDoc}
+     * @param name.
      */
     public User findUser(String name);
 
