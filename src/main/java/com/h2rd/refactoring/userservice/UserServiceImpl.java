@@ -2,6 +2,8 @@ package com.h2rd.refactoring.userservice;
 
 import com.h2rd.refactoring.bean.User;
 import com.h2rd.refactoring.dao.UserDaoImpl;
+import com.h2rd.refactoring.exceptions.UserAlreadyExistException;
+import com.h2rd.refactoring.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,9 @@ public class UserServiceImpl implements UserService{
      * {@inheritDoc}
      */
     public void saveUser(User user) {
+        if(dao.findUser(user.getEmail()) != null) {
+            throw new UserAlreadyExistException(user.getName());
+        }
         dao.saveUser(user);
     }
 
@@ -51,7 +56,11 @@ public class UserServiceImpl implements UserService{
     /**
      * {@inheritDoc}
      */
-    public User findUser(String name) {
-        return dao.findUser(name);
+    public User findUser(String email) {
+        User user = dao.findUser(email);
+        if(user == null) {
+            throw new UserNotFoundException(email);
+        }
+        return user;
     }
 }

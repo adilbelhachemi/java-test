@@ -1,7 +1,6 @@
 package test.com.h2rd.refactoring.unit;
 
 import com.h2rd.refactoring.bean.User;
-import com.h2rd.refactoring.dao.UserDaoImpl;
 import com.h2rd.refactoring.userservice.UserServiceImpl;
 import com.h2rd.refactoring.web.UserResource;
 import junit.framework.Assert;
@@ -11,30 +10,27 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.mockito.Mockito.*;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.ws.rs.core.Response;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Vector;
+
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/application-config.xml")
 public class UserResourceUnitTest {
 
 
-    @Autowired
     @InjectMocks
     UserResource userResource;
 
     @Mock
     UserServiceImpl service;
+
 
 
     @Before
@@ -91,14 +87,6 @@ public class UserResourceUnitTest {
      * @return
      */
     private User getUser() {
-
-        User user = new User();
-        user.setName("fake user");
-        user.setEmail("fake@user.com");
-
-        List<String> roles = Arrays.asList("User");
-        user.setRoles(roles);
-
-        return user;
+        return new User("fake user", "fake@user.com", Arrays.asList("User"));
     }
 }

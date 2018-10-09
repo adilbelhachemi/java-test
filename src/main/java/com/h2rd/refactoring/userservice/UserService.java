@@ -34,9 +34,10 @@ public interface UserService {
     public void updateUser(User userToUpdate);
 
     /**
+     * Find user
      * {@inheritDoc}
      * @param name.
      */
-    public User findUser(String name);
+    public User findUser(String email);
 
 }

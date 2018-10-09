@@ -1,10 +1,12 @@
-com/h2rd/refactoring/dao/UserDaoImpl.class
+com/h2rd/refactoring/exceptions/UserNotFoundException.class
 com/h2rd/refactoring/web/UserResource.class
 com/h2rd/refactoring/dao/UserDao.class
 com/h2rd/refactoring/userservice/UserService.class
-com/h2rd/refactoring/helper/UserValidationHelper.class
+com/h2rd/refactoring/exceptions/UserAlreadyExistException.class
 com/h2rd/refactoring/util/StatusCode.class
+com/h2rd/refactoring/message/UserMessage.class
+com/h2rd/refactoring/dao/UserDaoImpl.class
+com/h2rd/refactoring/helper/UserValidationHelper.class
 com/h2rd/refactoring/userservice/UserServiceImpl.class
 com/h2rd/refactoring/web/UserResource$1.class
-com/h2rd/refactoring/message/UserMessage.class
 com/h2rd/refactoring/bean/User.class

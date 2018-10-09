@@ -1,9 +1,9 @@
 package com.h2rd.refactoring.dao;
 
 import com.h2rd.refactoring.bean.User;
+import com.h2rd.refactoring.exceptions.UserNotFoundException;
 import org.springframework.stereotype.Repository;
 
-import java.util.Arrays;
 import java.util.Vector;
 
 @Repository
@@ -19,7 +19,6 @@ public class UserDaoImpl implements UserDao {
 
     static {
         users = (users == null) ? new Vector<User>() : users;
-        users.add(new User("test", "t@gmail.com", Arrays.asList("User")));
     }
 
     /**
@@ -33,14 +32,14 @@ public class UserDaoImpl implements UserDao {
      * {@inheritDoc}
      */
     public Vector<User> getUsers() {
-        return (users != null) ? users : new Vector<User>();
+        return users;
     }
 
     /**
      * {@inheritDoc}
      */
     public void deleteUser(User userToDelete) {
-        User user = (userToDelete != null ) ? findUser(userToDelete.getName()) : null;
+        User user = (userToDelete != null) ? findUser(userToDelete.getEmail()) : null;
         if (user != null) {
             users.remove(user);
         }
@@ -50,8 +49,9 @@ public class UserDaoImpl implements UserDao {
      * {@inheritDoc}
      */
     public void updateUser(User userToUpdate) {
-        User user = (userToUpdate != null ) ? findUser(userToUpdate.getName()) : null;
+        User user = (userToUpdate != null) ? findUser(userToUpdate.getEmail()) : null;
         if (user != null) {
+            user.setName(userToUpdate.getName());
             user.setEmail(userToUpdate.getEmail());
             user.setRoles(userToUpdate.getRoles());
         }
@@ -60,9 +60,9 @@ public class UserDaoImpl implements UserDao {
     /**
      * {@inheritDoc}
      */
-    public User findUser(String name) {
+    public User findUser(String email) {
         for (User user : users) {
-            if (user.getName() == name) {
+            if (user.getEmail().equals(email)) {
                 return user;
             }
         }

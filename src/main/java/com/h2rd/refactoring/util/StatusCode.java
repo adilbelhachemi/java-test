@@ -9,6 +9,7 @@ package com.h2rd.refactoring.util;
  */
 public enum StatusCode {
 
+    OK_STATUS(200, "Ok"),
     CREATED_STATUS(201, "Created"),
     NO_CONTENT_STATUS(204, "No Content"),
     BAD_REQUEST_STATUS(400, "Bad Request"),

@@ -2,6 +2,9 @@ package com.h2rd.refactoring.message;
 
 /**
  * Created by adil on 08/10/18.
+ *
+ * This class contains all messages
+ * returned in the response object
  */
 public class UserMessage {
 

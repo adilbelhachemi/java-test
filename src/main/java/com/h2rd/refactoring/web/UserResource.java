@@ -85,17 +85,22 @@ public class UserResource{
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Response findUser(@QueryParam("name") String name) {
+    public Response findUser(@QueryParam("email") String email) {
 
-        if(!StringUtils.isEmpty(name)) {
-            User user = service.findUser(name);
+        if(!StringUtils.isEmpty(email)) {
+            User user = service.findUser(email);
             if(user != null) {
-                return Response.ok().entity(user).build();
+                return Response.ok().entity(user.getName()).build();
             } else {
                 return Response.status(StatusCode.NO_CONTENT_STATUS.getCode()).entity(UserMessage.NO_USER_FOUND_MESSAGE).build();
             }
         }else {
             return Response.status(StatusCode.BAD_REQUEST_STATUS.getCode()).entity(UserMessage.USER_NAME_ERROR_MESSAGE).build();
         }
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String testUser() {
+        return "Succes";
     }
 }

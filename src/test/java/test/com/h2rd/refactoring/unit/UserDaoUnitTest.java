@@ -2,6 +2,7 @@ package test.com.h2rd.refactoring.unit;
 
 import com.h2rd.refactoring.bean.User;
 import com.h2rd.refactoring.dao.UserDaoImpl;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,13 +30,16 @@ public class UserDaoUnitTest {
         user.setRoles(Arrays.asList("admin", "master"));
     }
 
+    @After
+
     @Test
     public void saveUserTest() {
         userDao.saveUser(user);
-        Assert.assertTrue(userDao.findUser(user.getName()) != null);
+        Assert.assertTrue(userDao.findUser(user.getEmail()) != null);
 
-        User _user = userDao.findUser(user.getName());
+        User _user = userDao.findUser(user.getEmail());
         Assert.assertEquals("Fake Name", _user.getName());
+        userDao.deleteUser(user);
     }
 
     @Test
@@ -46,21 +50,22 @@ public class UserDaoUnitTest {
 
     @Test
     public void updateUserTest(){
-        userDao.saveUser(user);
-        user.setName("Will Smith");
 
-        userDao.updateUser(user);
-        User updatedUser = userDao.findUser("Will Smith");
+        User newUser = new User("test2", "test2@user.com", Arrays.asList("Admin"));
+        userDao.saveUser(newUser);
+        newUser.setName("Will Smith");
 
-        Assert.assertEquals("Will Smith", updatedUser.getName());
+        userDao.updateUser(newUser);
+        User updatedUser = userDao.findUser(newUser.getEmail());
+
+        Assert.assertTrue("Will Smith".equals(updatedUser.getName()));
     }
 
     @Test
     public void deleteUserTest() {
-        user = new User();
-        user.setName("Fresh prince of bel air");
-        userDao.saveUser(user);
-        userDao.deleteUser(user);
-        Assert.assertNull(userDao.findUser(user.getName()));
+        User newUser = new User("test3", "test3@user.com", Arrays.asList("Admin"));
+        userDao.saveUser(newUser);
+        userDao.deleteUser(newUser);
+        Assert.assertNull(userDao.findUser(newUser.getEmail()));
     }
 }
