@@ -2,66 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a117877e-c219-4a49-822c-75343441d1f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/exceptions/UserNotFoundException.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_3_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/bean/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/dao/UserDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/dao/UserDaoImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/helper/UserValidationHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/message/UserMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/userservice/UserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/userservice/UserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/util/StatusCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/web/UserResource$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/h2rd/refactoring/web/UserResource.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-context-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-core-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/lib/spring-web-4.3.0.RELEASE.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/bean/User.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/bean/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/dao/UserDaoImpl.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/dao/UserDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/helper/UserValidationHelper.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/helper/UserValidationHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/message/UserMessage.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/message/UserMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/userservice/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/userservice/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/util/StatusCode.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/util/StatusCode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/web/UserResource.class" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/classes/com/h2rd/refactoring/web/UserResource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/integration/UserIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/integration/UserIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/unit/UserDaoUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/unit/UserDaoUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/unit/UserResourceUnitTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/com/h2rd/refactoring/unit/UserResourceUnitTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/java-refactoring-test.iml" afterPath="$PROJECT_DIR$/java-refactoring-test.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/bean/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/bean/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/dao/UserDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/dao/UserDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/helper/UserValidationHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/helper/UserValidationHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/message/UserMessage.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/message/UserMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/util/StatusCode.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/util/StatusCode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/integration/UserIntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/integration/UserIntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserDaoUnitTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserDaoUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserResourceUnitTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserResourceUnitTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/java-refactoring-test-0.0.1-SNAPSHOT/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-test.com.h2rd.refactoring.unit.UserDaoUnitTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-test.com.h2rd.refactoring.unit.UserDaoUnitTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-test.com.h2rd.refactoring.unit.UserResourceUnitTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-test.com.h2rd.refactoring.unit.UserResourceUnitTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/test.com.h2rd.refactoring.unit.UserDaoUnitTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/test.com.h2rd.refactoring.unit.UserDaoUnitTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/test.com.h2rd.refactoring.unit.UserResourceUnitTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/test.com.h2rd.refactoring.unit.UserResourceUnitTest.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserResource.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserResource.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="87" column="20" lean-forward="false" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+            <state relative-caret-position="98">
+              <caret line="82" column="42" lean-forward="false" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+              <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -257,13 +198,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/bean/User.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserResourceUnitTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/exceptions/UserAlreadyExistException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/exceptions/UserNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/integration/UserIntegrationTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/unit/UserDaoUnitTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java" />
       </list>
     </option>
   </component>
@@ -1228,7 +1169,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1366" height="743" extended-state="7" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1653,16 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="87" column="20" lean-forward="false" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/test/com/h2rd/refactoring/integration/UserIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="784">
@@ -1688,7 +1619,17 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/userservice/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+          <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/h2rd/refactoring/web/UserResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="82" column="42" lean-forward="false" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

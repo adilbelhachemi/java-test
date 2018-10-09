@@ -90,7 +90,7 @@ public class UserResource{
         if(!StringUtils.isEmpty(email)) {
             User user = service.findUser(email);
             if(user != null) {
-                return Response.ok().entity(user.getName()).build();
+                return Response.ok().entity(user).build();
             } else {
                 return Response.status(StatusCode.NO_CONTENT_STATUS.getCode()).entity(UserMessage.NO_USER_FOUND_MESSAGE).build();
             }
